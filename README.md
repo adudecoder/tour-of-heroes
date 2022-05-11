@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
+# Quality of the Code
+
+[![DeepScan grade](https://deepscan.io/api/teams/17680/projects/21033/branches/592490/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=17680&pid=21033&bid=592490)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
