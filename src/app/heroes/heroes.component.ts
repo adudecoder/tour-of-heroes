@@ -13,9 +13,8 @@ export class HeroesComponent implements OnInit {
         name: 'Fade'
     };
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        throw new Error('Method not implemented.');
+    }
 
 }
