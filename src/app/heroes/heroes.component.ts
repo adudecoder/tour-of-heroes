@@ -1,3 +1,4 @@
+import { HeroService } from './../hero.service';
 import { Hero } from './../hero.module';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroesComponent implements OnInit {
 
-    hero: Hero = {
-        id: 1,
-        name: 'Fade'
-    };
+    displayedColumns: string[] = ['id', 'name'];
+    heroes: Hero[] = [];
+
+    constructor(private heroService: HeroService) {
+
+    }
 
     ngOnInit(): void {
-        throw new Error('Method not implemented.');
+        this.getHeroes();
+    }
+
+    getHeroes(): void {
+       this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
     }
 
 }
