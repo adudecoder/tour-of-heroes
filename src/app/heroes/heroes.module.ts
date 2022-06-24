@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { DashboardModule } from './../dashboard/dashboard.module';
 import { RouterModule } from '@angular/router';
@@ -8,12 +9,14 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 @NgModule({
-  declarations: [HeroesComponent, HeroDetailComponent],
-  imports: [
-    CommonModule, MaterialModule, FormsModule, HeroesRoutingModule
-  ]
+    declarations: [HeroesComponent, HeroDetailComponent],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        HeroesRoutingModule,
+        FlexLayoutModule,
+    ],
 })
-export class HeroesModule { }
+export class HeroesModule {}

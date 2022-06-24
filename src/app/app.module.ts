@@ -26,10 +26,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         NgbModule,
         BrowserAnimationsModule,
 
-        // Feature
-        DashboardModule,
-        HeroesModule,
-
         // App
         CoreModule,
         AppRoutingModule

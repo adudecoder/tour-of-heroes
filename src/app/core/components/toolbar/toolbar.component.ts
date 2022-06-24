@@ -3,8 +3,7 @@ import { MenuItem } from '../../../material/menu-item.model';
 
 @Component({
     selector: 'app-toolbar',
-    templateUrl: './toolbar.component.html',
-    styles: [],
+    templateUrl: './toolbar.component.html'
 })
 export class ToolbarComponent {
     @Input() title = '';
