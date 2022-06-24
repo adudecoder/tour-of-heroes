@@ -1,4 +1,4 @@
-import { MenuItem } from './core/material/menu-item.model';
+import { MenuItem } from './material/menu-item.model';
 import { Component } from '@angular/core';
 
 @Component({
