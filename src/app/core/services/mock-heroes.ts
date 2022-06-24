@@ -1,4 +1,4 @@
-import { Hero } from "./hero.module";
+import { Hero } from "../models/hero.module";
 
 export const HEROES: Hero[] = [
     { id: 1, name: 'Fade', imgURL: 'https://cdn.oneesports.gg/cdn-data/2022/04/VALORANT_Fade_Banner_Art-1536x864.jpg', description: 'Turkish bounty hunter Fade unleashes the power of raw nightmare to seize enemy secrets. Attuned with terror itself, she hunts down targets and reveals their deepest fears - before crushing them in the dark.' },
