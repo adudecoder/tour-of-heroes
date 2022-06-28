@@ -1,7 +1,8 @@
+import { LoadingService } from './loading.service';
 import { environment } from './../../../environments/environment';
 import { MessageService } from './message.service';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { Hero } from '../models/hero.module';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,7 +23,8 @@ export class HeroService {
 
         return this.http
             .get<Hero[]>(this.heroesUrl)
-            .pipe(tap((heroes) => this.log(`fetched ${heroes.length} heroes`)));
+            .pipe(
+                tap((heroes) => this.log(`fetched ${heroes.length} heroes`)));
     }
 
     // GET /heroes/id
