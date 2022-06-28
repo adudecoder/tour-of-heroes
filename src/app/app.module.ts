@@ -14,6 +14,7 @@ import { HeroDetailComponent } from './heroes/components/hero-detail/hero-detail
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessagesComponent } from './core/components/messages/messages.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         FormsModule,
         NgbModule,
         BrowserAnimationsModule,
+        HttpClientModule,
 
         // App
         CoreModule,
