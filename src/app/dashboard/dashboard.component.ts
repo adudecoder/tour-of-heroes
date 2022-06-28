@@ -8,9 +8,9 @@ import { Hero } from '../core/models/hero.module';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-    panelOpenState = false;
+  panelOpenState = false;
 
-    heroes: Hero[] = [];
+  heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
 
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService.getAll().subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
 
 }

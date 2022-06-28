@@ -15,10 +15,10 @@ export class HeroService {
     constructor(
         private http: HttpClient,
         private messageService: MessageService
-    ) {}
+    ) { }
 
     // GET /heroes
-    getHeroes(): Observable<Hero[]> {
+    getAll(): Observable<Hero[]> {
         // Retornando um Observable de uma lista de Hero
 
         return this.http
@@ -28,7 +28,7 @@ export class HeroService {
     }
 
     // GET /heroes/id
-    getHero(id: number): Observable<Hero> {
+    getOne(id: number): Observable<Hero> {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 
         return this.http
@@ -42,6 +42,13 @@ export class HeroService {
         // const hero = HEROES.find((hero) => hero.id === id)!;
         // this.log(`fetched hero id=${id}`);
         // return of(hero);
+    }
+
+    // PUT /heroes/id
+    update(hero: Hero): Observable<Hero> {
+        return this.http.put<Hero>(`${this.heroesUrl}/${hero.id}`, hero).pipe(
+            tap((hero) => this.log(`update hero id=${hero.id} and name=${hero.name}`))
+        );
     }
 
     private log(message: string): void {

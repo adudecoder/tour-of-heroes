@@ -9,17 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroesComponent implements OnInit {
 
-    displayedColumns: string[] = ['id', 'name'];
-    heroes: Hero[] = [];
+  displayedColumns: string[] = ['id', 'name'];
+  heroes: Hero[] = [];
 
-    constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService) { }
 
-    ngOnInit(): void {
-        this.getHeroes();
-    }
+  ngOnInit(): void {
+    this.getHeroes();
+  }
 
-    getHeroes(): void {
-       this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
-    }
+  getHeroes(): void {
+    this.heroService.getAll().subscribe(heroes => this.heroes = heroes);
+  }
 
 }
