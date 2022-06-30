@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
         // @ANGULAR
         BrowserModule,
-        FormsModule,
         NgbModule,
         BrowserAnimationsModule,
         HttpClientModule,
