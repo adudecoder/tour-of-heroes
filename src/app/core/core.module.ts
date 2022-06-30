@@ -1,3 +1,4 @@
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { RouterModule } from '@angular/router';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -21,6 +22,11 @@ const MODULES = [FlexLayoutModule, MaterialModule, RouterModule];
         {
             provide: HTTP_INTERCEPTORS,
             useClass: LoadingInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
             multi: true
         }
     ]
