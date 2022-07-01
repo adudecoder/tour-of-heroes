@@ -32,7 +32,7 @@ export class HeroService {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 
         return this.http
-            .get<Hero>(`${this.heroesUrl}/${id}`)
+            .get<Hero>(this.getUrl(id))
             .pipe(
                 tap((hero) =>
                     this.log(`fetched ${this.descAttributes(hero)}`)
@@ -48,21 +48,32 @@ export class HeroService {
     create(hero: Hero): Observable<Hero> {
         return this.http.post<Hero>(this.heroesUrl, hero).pipe(
             tap((hero) => this.log(`update ${this.descAttributes(hero)}`))
-        )
+        );
     }
 
     // PUT /heroes/id
     update(hero: Hero): Observable<Hero> {
-        return this.http.put<Hero>(`${this.heroesUrl}/${hero.id}`, hero).pipe(
+        return this.http.put<Hero>(this.getUrl(hero.id), hero).pipe(
             tap((hero) => this.log(`update ${this.descAttributes(hero)}`))
         );
     }
 
+    // DELETE /heroes/id
+    delete(hero: Hero): Observable<any> {
+        return this.http.delete<any>(this.getUrl(hero.id)).pipe(
+            tap(() => this.log(`deleted ${this.descAttributes(hero)}`)));
+    }
+
     private descAttributes(hero: Hero): string {
-        return `Hero ID=${hero.id} and Name=${hero.name}`
+        return `Hero ID=${hero.id} and Name=${hero.name}`;
     }
 
     private log(message: string): void {
         this.messageService.add(`HeroService: ${message}`);
     }
+
+    private getUrl(id: number): string {
+        return `${this.heroesUrl}/${id}`;
+    }
+
 }

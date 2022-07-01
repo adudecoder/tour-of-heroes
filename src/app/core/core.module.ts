@@ -10,8 +10,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
-const COMPONENTS = [LoadingComponent, MessagesComponent, PageNotFoundComponent, ToolbarComponent];
+const COMPONENTS = [LoadingComponent, MessagesComponent, PageNotFoundComponent, ToolbarComponent, ConfirmationDialogComponent];
 const MODULES = [FlexLayoutModule, MaterialModule, RouterModule];
 
 @NgModule({
