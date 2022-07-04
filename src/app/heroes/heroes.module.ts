@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { DashboardModule } from './../dashboard/dashboard.module';
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
         FormsModule,
         HeroesRoutingModule,
         FlexLayoutModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule
     ],
 })
 export class HeroesModule {}

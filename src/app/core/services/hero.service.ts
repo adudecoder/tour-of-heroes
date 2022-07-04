@@ -2,7 +2,7 @@ import { LoadingService } from './loading.service';
 import { environment } from './../../../environments/environment';
 import { MessageService } from './message.service';
 import { Injectable } from '@angular/core';
-import { finalize, Observable, tap } from 'rxjs';
+import { finalize, Observable, of, tap } from 'rxjs';
 import { Hero } from '../models/hero.module';
 import { HttpClient } from '@angular/common/http';
 
@@ -42,6 +42,23 @@ export class HeroService {
         // const hero = HEROES.find((hero) => hero.id === id)!;
         // this.log(`fetched hero id=${id}`);
         // return of(hero);
+    }
+
+    // GET /heroes?name=term
+    search(term: string): Observable<Hero[]> {
+        if (!term.trim()) {
+            return of([]);
+        }
+
+        return this.http.get<Hero[]>(`${this.heroesUrl}?name=${term}`)
+        .pipe(
+            tap((heroes) =>
+
+                heroes.length
+                    ? this.log(`found ${heroes.length} heroes matching "${term}"`)
+                    : this.log(`no heroes matching "${term}"`)
+            )
+        );
     }
 
     // POST /heroes
