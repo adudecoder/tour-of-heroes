@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { MessageService } from './../services/message.service';
 import { Injectable } from '@angular/core';
 import {
@@ -17,10 +18,19 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
+
+        if (!environment.production) {
+          console.log(err);
+        }
+
         let errorMsg = '';
 
         if (err.error instanceof ErrorEvent) {
           errorMsg = `Error: ${err.error.message}`;
+        } else if (Array.isArray(err.error) && err.error.length) {
+          errorMsg = `Error: ${err.error[0]}`;
+        } else if (err.error.erros) {
+          errorMsg = `Error: ${err.error.errors}`
         } else {
           errorMsg = `Error code: ${err.status}, Message: ${err.message}`;
         }
