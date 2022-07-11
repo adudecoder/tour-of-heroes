@@ -13,13 +13,13 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
-const COMPONENTS = [LoadingComponent, MessagesComponent, PageNotFoundComponent, ToolbarComponent, ConfirmationDialogComponent];
+const CORE_COMPONENTS = [LoadingComponent, MessagesComponent, PageNotFoundComponent, ToolbarComponent, ConfirmationDialogComponent];
 const MODULES = [FlexLayoutModule, MaterialModule, RouterModule];
 
 @NgModule({
-    declarations: [COMPONENTS],
+    declarations: [CORE_COMPONENTS],
     imports: [CommonModule, MODULES],
-    exports: [MODULES, COMPONENTS],
+    exports: [MODULES],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

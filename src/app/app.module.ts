@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
         NgbModule,
         BrowserAnimationsModule,
         HttpClientModule,
+
+        // Third-party
+        FlexLayoutModule,
 
         // App
         CoreModule,
